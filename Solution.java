@@ -1,59 +1,32 @@
-/* Using inheritance, one class can acquire the properties of others. Consider the following Animal class:
+import java.util.Scanner;
 
-class Animal{
-    void walk(){
-        System.out.println("I am walking");
+abstract class Calculator {
+    abstract int add(int a, int b);
+}
+
+class Adder extends Calculator {
+    @Override
+    int add(int a, int b) {
+        return a + b;
     }
 }
-This class has only one method, walk. Next, we want to create a Bird class that also has a fly method. We do this using extends keyword:
 
-class Bird extends Animal {
-    void fly() {
-        System.out.println("I am flying");
-    }
-}
-Finally, we can create a Bird object that can both fly and walk.
-
-public class Solution{
-   public static void main(String[] args){
-
-      Bird bird = new Bird();
-      bird.walk();
-      bird.fly();
-   }
-}
-The above code will print:
-
-I am walking
-I am flying
-This means that a Bird object has all the properties that an Animal object has, as well as some additional unique properties.
-
-The code above is provided for you in your editor. You must add a sing method to the Bird class, then modify the main method accordingly so that the code prints the following lines:
-
-I am walking
-I am flying
-I am singing     */
-
-
-class Animal{
-    void walk(){
-        System.out.println("I am walking");
-    }
-}
-class Bird extends Animal{
-    void fly(){
-        System.out.println("I am flying");
-    }
-    void sing(){
-        System.out.println("I am singing");
-    }
-}
 public class Solution {
     public static void main(String[] args) {
-        Bird bird = new Bird();
-        bird.walk();
-        bird.fly();
-        bird.sing();
-    }
+        Scanner scanner = new Scanner(System.in);
+        Adder adder = new Adder();
 
+
+        int num1 = scanner.nextInt();
+
+
+        int num2 = scanner.nextInt();
+
+
+        int sum = adder.add(num1, num2);
+
+        System.out.println(sum);
+
+        scanner.close();
+    }
 }
